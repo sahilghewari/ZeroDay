@@ -9,7 +9,7 @@ export function AboutSection() {
   return (
     <section id="about" className="py-24 bg-gradient-to-b from-gray-900 to-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex gap-8 py-6 lg:py-20 items-center justify-center flex-col">
+        <div className="flex gap-8 py-6 lg:py-10 items-center justify-center flex-col">
           <div>
             <Badge variant="secondary" className="bg-cyan-400/20 text-cyan-400 border-cyan-400/50">
               Dec 25-26, 2025
