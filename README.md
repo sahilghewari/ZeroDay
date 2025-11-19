@@ -1,36 +1,165 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ZeroDay Hackathon Website v2.0
 
-## Getting Started
+India's Premier Social Impact & AI/ML Hackathon
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 14+
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **UI Components**: shadcn/ui + Custom Components
+- **3D Graphics**: Three.js + React Three Fiber
+- **Icons**: Lucide React
+- **Theme**: next-themes (Dark/Light mode)
+
+## ✨ Features
+
+- **Animated Shader Background**: Soft gradient animations with light colors
+- **Interactive 3D Cards**: Tilt effects with subtle glow animations
+- **Responsive Design**: Mobile-first approach
+- **Smooth Animations**: Scroll-triggered reveals and transitions
+- **Light Theme**: Clean, professional aesthetic
+- **Typewriter Effect**: Dynamic text animation
+- **Countdown Timer**: Real-time event countdown
+- **Problem Statements**: Interactive accordion with categories
+- **Navigation**: Sticky blur navigation with active section highlighting
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── ui/                    # shadcn/ui components
+│   ├── animated-shader-background.tsx
+│   ├── navigation.tsx
+│   ├── hero-section.tsx
+│   ├── about-section.tsx
+│   ├── problem-statements-section.tsx
+│   ├── typewriter-text.tsx
+│   ├── countdown-timer.tsx
+│   ├── interactive-3d-card.tsx
+│   └── theme-provider.tsx
+└── lib/
+    └── utils.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd zeroday
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Open [http://localhost:3000](http://localhost:3000) in your browser**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design Philosophy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Production-ready**: Battle-tested components
+- **Community-tested**: Inspired by 21st.dev's extensive library
+- **Custom ZeroDay branding**: Cyber-professional aesthetic
+- **Performance-optimized**: Lazy loading and efficient animations
+- **Accessible**: WCAG 2.1 AA compliant
 
-## Deploy on Vercel
+## 🛠️ Component Library
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Core Components Implemented
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **AnimatedShaderBackground**: WebGL shader animations
+- **HeroSection**: Landing section with stats and CTA
+- **Navigation**: Sticky blur navigation
+- **AboutSection**: Interactive 3D cards and features
+- **ProblemStatementsSection**: Tabbed categories with accordions
+- **TypewriterText**: Animated typing effect
+- **CountdownTimer**: Real-time countdown
+- **Interactive3DCard**: 3D tilt with glow effects
+
+### UI Components (shadcn/ui)
+
+- Button, Card, Badge, Avatar
+- Accordion, Tabs, Dialog
+- Input, Form, Select
+- Label
+
+## 🎯 Hackathon Details
+
+- **Date**: December 25-26, 2025
+- **Teams**: 50 elite college teams
+- **Duration**: 24 intense hours
+- **Prize Pool**: ₹1.5 Lakh
+- **Categories**: 5 (FinTech, HealthTech, Future of Work, CivicTech, Sustainability)
+
+## 📱 Mobile Optimization
+
+- Responsive design across all devices
+- Touch-friendly interactions
+- Optimized animations for mobile performance
+- Mobile navigation patterns
+
+## 🌟 Key Features
+
+- **Real-time Animations**: Framer Motion powered transitions
+- **Particle Effects**: tsparticles integration
+- **3D Interactions**: React Three Fiber components
+- **Theme Switching**: Dark/light mode toggle
+- **Scroll Animations**: Intersection Observer triggers
+- **Performance**: Lazy loading and code splitting
+
+## 🔧 Customization
+
+### Colors
+```css
+--color-deep-navy: #1e40af;
+--color-electric-cyan: #3b82f6;
+--color-neon-purple: #6366f1;
+--color-vivid-magenta: #8b5cf6;
+```
+
+### Animations
+- `slide-right`: Button hover effects
+- `fade-in-up`: Section reveals
+- `pulse-glow`: Glowing elements
+
+## 📈 Performance
+
+- **Lazy Loading**: Dynamic imports for heavy components
+- **Image Optimization**: Next.js Image component
+- **Bundle Splitting**: Route-based code splitting
+- **Reduced Motion**: Respects user preferences
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+- Inspired by 21st.dev component library
+- Built with Next.js and shadcn/ui
+- Icons by Lucide React
+- Animations by Framer Motion
+
+---
+
+**ZeroDay Hackathon** - Where innovation meets impact! 🚀✨
