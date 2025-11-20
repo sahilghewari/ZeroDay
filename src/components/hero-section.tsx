@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
 import { SplineScene } from "@/components/ui/splite";
@@ -10,7 +10,7 @@ import VaporizeTextCycle, { Tag } from "@/components/ui/vapour-text-effect";
 import { CountdownTimer } from "@/components/countdown-timer";
 import { HoverButton } from "@/components/ui/hover-button";
 import { ArrowRight, FileText } from "lucide-react";
-import Hyperspeed from "./Hyperspeed";
+import RotatingText from "./RotatingText";
 
 interface HeroSectionProps {
   variant?: "center-with-stats" | "default";
@@ -29,47 +29,7 @@ export function HeroSection({
         <CountdownTimer targetDate="2025-12-25T09:30:00" variant="compact" />
 
         <div className="w-full max-w-7xl h-[800px] relative">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <Hyperspeed
-              effectOptions={{
-                onSpeedUp: () => {},
-                onSlowDown: () => {},
-                distortion: "turbulentDistortion",
-                length: 400,
-                roadWidth: 10,
-                islandWidth: 2,
-                lanesPerRoad: 4,
-                fov: 90,
-                fovSpeedUp: 150,
-                speedUp: 2,
-                carLightsFade: 0.4,
-                totalSideLightSticks: 20,
-                lightPairsPerRoadWay: 40,
-                shoulderLinesWidthPercentage: 0.05,
-                brokenLinesWidthPercentage: 0.1,
-                brokenLinesLengthPercentage: 0.5,
-                lightStickWidth: [0.12, 0.5],
-                lightStickHeight: [1.3, 1.7],
-                movingAwaySpeed: [60, 80],
-                movingCloserSpeed: [-120, -160],
-                carLightsLength: [400 * 0.03, 400 * 0.2],
-                carLightsRadius: [0.05, 0.14],
-                carWidthPercentage: [0.3, 0.5],
-                carShiftX: [-0.8, 0.8],
-                carFloorSeparation: [0, 5],
-                colors: {
-                  roadColor: 0x080808,
-                  islandColor: 0x0a0a0a,
-                  background: 0x000000,
-                  shoulderLines: 0xffffff,
-                  brokenLines: 0xffffff,
-                  leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
-                  rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
-                  sticks: 0x03b3c3,
-                },
-              }}
-            />
-          </div>
+          <div className="absolute inset-0 z-0 pointer-events-none"></div>
           <Card className="relative z-10 w-full h-full bg-transparent backdrop-blur-lg bg-clip-padding overflow-hidden border border-cyan-400/30 shadow-2xl shadow-cyan-400/20">
             <Spotlight
               className="-top-40 left-0 md:left-60 md:-top-20"
@@ -92,20 +52,21 @@ export function HeroSection({
                   </Badge>
 
                   <div className="">
-                    <VaporizeTextCycle
+                    <RotatingText
                       texts={["ZeroDay", "Hack.", "Build.", "Transform."]}
-                      className="font-sans font-extrabold text-[clamp(20px,6.5vw,60px)] leading-tight"
-                      color="rgb(34, 211, 238)"
-                      spread={2}
-                      density={6}
-                      animation={{
-                        vaporizeDuration: 2.5,
-                        fadeInDuration: 1.2,
-                        waitDuration: 1,
+                      mainClassName="px-2 sm:px-2 md:px-3 text-6xl text-[#00D3F3] overflow-hidden py-0.5 sm:py-1 md:py-2 justify-start font-bold rounded-lg"
+                      staggerFrom={"last"}
+                      initial={{ y: "100%" }}
+                      animate={{ y: 0 }}
+                      exit={{ y: "-120%" }}
+                      staggerDuration={0.025}
+                      splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                      transition={{
+                        type: "spring",
+                        damping: 30,
+                        stiffness: 400,
                       }}
-                      direction="left-to-right"
-                      alignment="left"
-                      tag={Tag.H1}
+                      rotationInterval={2000}
                     />
                   </div>
 

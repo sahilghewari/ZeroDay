@@ -19,8 +19,8 @@ export default function Home() {
     <GradualBlur
       target="page"
       position="bottom"
-      height="6rem"
-      strength={2}
+      height="7rem"
+      strength={3}
       divCount={5}
       curve="bezier"
       exponential={true}
