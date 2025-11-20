@@ -39,9 +39,17 @@ export function Navigation({ sticky = true, blurOnScroll = true, className = "" 
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    if (!element) return
+
+    const lenis = (window as any).lenis
+    if (lenis && typeof lenis.scrollTo === 'function') {
+      const y = element.getBoundingClientRect().top + window.scrollY
+      lenis.scrollTo(y)
+      return
     }
+
+    // Fallback
+    element.scrollIntoView({ behavior: 'smooth' })
   }
 
   const navItems = [
