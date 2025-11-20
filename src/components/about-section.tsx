@@ -46,10 +46,10 @@ export function AboutSection() {
             viewport={{ once: true }}
             className="flex flex-row gap-3"
           >
-            <HoverButton className="bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black">
+            <HoverButton className="flex flex-row items-center gap-2 bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black">
               Register Your Team <ArrowRight className="w-4 h-4" />
             </HoverButton>
-            <HoverButton className="border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10">
+            <HoverButton className="flex flex-row items-center gap-2 border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10">
               View Problem Statements <FileText className="w-4 h-4" />
             </HoverButton>
           </motion.div>

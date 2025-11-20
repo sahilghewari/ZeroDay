@@ -42,6 +42,7 @@ type VaporizeTextCycleProps = {
     fontSize?: string;
     fontWeight?: number;
   };
+  className?: string;
   color?: string;
   spread?: number;
   density?: number;
@@ -89,6 +90,7 @@ export default function VaporizeTextCycle({
     fontSize: "50px",
     fontWeight: 400,
   },
+  className = "",
   color = "rgb(255, 255, 255)",
   spread = 5,
   density = 5,
@@ -112,6 +114,11 @@ export default function VaporizeTextCycle({
   const vaporizeProgressRef = useRef(0);
   const fadeOpacityRef = useRef(0);
   const [wrapperSize, setWrapperSize] = useState({ width: 0, height: 0 });
+  const [computedFont, setComputedFont] = useState<{ fontFamily: string; fontSize: string; fontWeight: number }>({
+    fontFamily: font.fontFamily || "sans-serif",
+    fontSize: font.fontSize || "50px",
+    fontWeight: font.fontWeight || 400,
+  });
   const transformedDensity = transformValue(density, [0, 10], [0.3, 1], true);
 
   // Calculate device pixel ratio
@@ -144,14 +151,17 @@ export default function VaporizeTextCycle({
 
   // Memoize font and spread calculations
   const fontConfig = useMemo(() => {
-    const fontSize = parseInt(font.fontSize?.replace("px", "") || "50");
+    const usedFontFamily = font.fontFamily || computedFont.fontFamily || "sans-serif";
+    const usedFontSizeStr = font.fontSize || computedFont.fontSize || "50px";
+    const usedFontWeight = font.fontWeight ?? computedFont.fontWeight ?? 400;
+    const fontSize = parseInt(usedFontSizeStr?.toString().replace("px", "") || "50");
     const VAPORIZE_SPREAD = calculateVaporizeSpread(fontSize);
     const MULTIPLIED_VAPORIZE_SPREAD = VAPORIZE_SPREAD * spread;
     return {
       fontSize,
       VAPORIZE_SPREAD,
       MULTIPLIED_VAPORIZE_SPREAD,
-      font: `${font.fontWeight ?? 400} ${fontSize * globalDpr}px ${font.fontFamily}`,
+      font: `${usedFontWeight} ${fontSize * globalDpr}px ${usedFontFamily}`,
     };
   }, [font.fontSize, font.fontWeight, font.fontFamily, spread, globalDpr]);
 
@@ -189,6 +199,20 @@ export default function VaporizeTextCycle({
       }
     }
   }, [isInView]);
+
+  // If no explicit font prop is provided, try to read the computed styles from the wrapper element
+  useEffect(() => {
+    if (!wrapperRef.current) return;
+    try {
+      const cs = window.getComputedStyle(wrapperRef.current);
+      const fontFamily = cs.fontFamily || computedFont.fontFamily;
+      const fontSize = cs.fontSize || computedFont.fontSize;
+      const fontWeight = parseInt(cs.fontWeight || String(computedFont.fontWeight)) || computedFont.fontWeight;
+      setComputedFont({ fontFamily, fontSize, fontWeight });
+    } catch (e) {
+      // ignore (server-side or restricted environment)
+    }
+  }, [className, wrapperRef.current]);
 
   // Animation loop - only run when in view
   useEffect(() => {
@@ -378,7 +402,7 @@ export default function VaporizeTextCycle({
   }, []);
 
   return (
-    <div ref={wrapperRef} style={wrapperStyle}>
+    <div ref={wrapperRef} className={className} style={wrapperStyle}>
       <canvas ref={canvasRef} style={canvasStyle} />
       <SeoElement tag={tag} texts={texts} />
     </div>

@@ -18,7 +18,9 @@ interface HeroSectionProps {
 
 export function HeroSection({ variant = "center-with-stats", className = "" }: HeroSectionProps) {
   return (
-    <section className={`relative min-h-screen flex items-center justify-center px-4 bg-black ${className}`}>
+    <section className={`relative min-h-screen flex flex-col gap-2 items-center justify-center px-4 bg-black ${className}`}>
+              <CountdownTimer targetDate="2025-12-25T09:30:00" variant="compact" />
+
       <Card className="w-full max-w-7xl h-[600px] bg-black/90 backdrop-blur-sm relative overflow-hidden border border-cyan-400/30 shadow-2xl shadow-cyan-400/20">
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20"
@@ -37,12 +39,12 @@ export function HeroSection({ variant = "center-with-stats", className = "" }: H
                 Dec 25-26, 2025
               </Badge>
 
-              <div className="mb-4">
+              <div className="">
                 <VaporizeTextCycle
                   texts={['ZeroDay', 'Hack.', 'Build.', 'Transform.']}
                   font={{
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "36px",
+                    fontSize: "76px",
                     fontWeight: 700
                   }}
                   color="rgb(34, 211, 238)"
@@ -65,13 +67,13 @@ export function HeroSection({ variant = "center-with-stats", className = "" }: H
 
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <HoverButton
-                  className="bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black px-6 py-3 font-semibold shadow-lg shadow-cyan-400/25"
+                  className="flex flex-row items-center gap-2 bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black px-6 py-3 font-semibold shadow-lg shadow-cyan-400/25"
                 >
                   Register Your Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </HoverButton>
                 <HoverButton
-                  className="border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 px-6 py-3"
+                  className=" flex flex-row items-center gap-2 border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 px-6 py-3"
                 >
                   View Problem Statements
                   <FileText className="ml-2 h-4 w-4" />
@@ -94,8 +96,6 @@ export function HeroSection({ variant = "center-with-stats", className = "" }: H
                   </div>
                 </div>
               )}
-
-              <CountdownTimer targetDate="2025-12-25T09:30:00" variant="compact" />
             </motion.div>
           </div>
 
