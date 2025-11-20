@@ -14,6 +14,7 @@ interface NavigationProps {
 export function Navigation({ sticky = true, blurOnScroll = true, className = "" }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,6 +55,7 @@ export function Navigation({ sticky = true, blurOnScroll = true, className = "" 
   ]
 
   return (
+    <>
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         sticky ? 'sticky' : ''
@@ -105,14 +107,63 @@ export function Navigation({ sticky = true, blurOnScroll = true, className = "" 
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button className="text-gray-300 hover:text-white">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+            <button
+              onClick={() => setMobileOpen(v => !v)}
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              className="text-gray-300 hover:text-white"
+            >
+              {mobileOpen ? (
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
       </div>
     </motion.nav>
+    {/* Mobile menu panel */}
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={mobileOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+      transition={{ duration: 0.18 }}
+      className={`md:hidden overflow-hidden`}
+    >
+      <div className="px-4 pt-4 pb-6 bg-black/90 backdrop-blur-sm border-t border-cyan-400/20">
+        <div className="flex flex-col space-y-2">
+          {navItems.map((item) => (
+            <button
+              key={item.href}
+              onClick={() => {
+                scrollToSection(item.href.slice(1));
+                setMobileOpen(false);
+              }}
+              className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                activeSection === item.href.slice(1)
+                  ? 'text-cyan-400'
+                  : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-400/10'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+
+          <div className="pt-2">
+            <HoverButton
+              onClick={() => { setMobileOpen(false); /* navigate to register if needed */ }}
+              className="w-full flex items-center justify-center bg-gradient-to-r from-cyan-400 to-purple-400 text-black font-semibold shadow-lg shadow-cyan-400/25"
+            >
+              Register Now
+            </HoverButton>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+    </>
   )
 }
