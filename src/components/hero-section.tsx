@@ -114,14 +114,14 @@ export function HeroSection({
                     innovation meets impact.
                   </p>
 
-                  <div className="flex flex-row gap-4 mb-6 w-full">
-                    <HoverButton className="flex-1 min-w-0 flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black px-6 py-3 font-semibold shadow-lg shadow-cyan-400/25">
-                      <span className="truncate">Register Team</span>
-                      <ArrowRight className="ml-2 h-6 w-6" />
+                  <div className="flex flex-row gap-2 lg:gap-4 mb-6 w-full">
+                    <HoverButton className="flex-1 min-w-0 flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black  font-semibold shadow-lg shadow-cyan-400/25">
+                      <span>Register</span>
+                      <ArrowRight className="ml-1 h-6 w-6" />
                     </HoverButton>
                     <HoverButton className="flex-1 min-w-0 flex items-center justify-center gap-2 border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 px-6 py-3">
-                      <span className="truncate">Problem Statements</span>
-                      <FileText className="ml-2 h-6 w-6" />
+                      <span>Problems</span>
+                      <FileText className="ml-1 h-6 w-6" />
                     </HoverButton>
                   </div>
 
