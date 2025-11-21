@@ -4,8 +4,10 @@ import { AboutSection } from "@/components/about-section"
 import { ProblemStatementsSection } from "@/components/problem-statements-section"
 import { FaqsSection } from "@/components/ui/faqs-1"
 import GradualBlur from '../components/GradualBlur';
+import { TimelineSection } from "@/components/TimelineSection";
 
 export default function Home() {
+  
   return (
     <section>
 
@@ -14,6 +16,7 @@ export default function Home() {
       <HeroSection variant="center-with-stats" />
       <AboutSection />
       <ProblemStatementsSection />
+      <TimelineSection />
       <FaqsSection />
     </div>
     <GradualBlur
