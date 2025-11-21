@@ -5,12 +5,13 @@ import { ProblemStatementsSection } from "@/components/problem-statements-sectio
 import { FaqsSection } from "@/components/ui/faqs-1"
 import GradualBlur from '../components/GradualBlur';
 import { TimelineSection } from "@/components/TimelineSection";
+import { ScrollProgress } from "@/components/ui/scroll-progress"
 
 export default function Home() {
   
   return (
     <section>
-
+<ScrollProgress />
     <div className="min-h-screen bg-black pb-24">
       <Navigation />
       <HeroSection variant="center-with-stats" />
