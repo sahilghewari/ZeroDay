@@ -7,10 +7,9 @@ export default function LenisProvider() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
-      smooth: true,
       // gentle easing by default; tweak as needed
       easing: (t: number) => Math.min(1, 1 - Math.pow(1 - t, 3)),
-    })
+    } as any)
 
     let rafId = 0
     function raf(time: number) {
