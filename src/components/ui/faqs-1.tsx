@@ -20,7 +20,7 @@ export function FaqsSection() {
 			<Accordion
 				type="single"
 				collapsible
-				className="bg-card dark:bg-card/50 w-full -space-y-px rounded-lg "
+				className="bg-card/50 w-full -space-y-px rounded-lg "
 				defaultValue="item-1"
 			>
 				{questions.map((item) => (

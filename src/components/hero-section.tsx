@@ -10,7 +10,7 @@ import VaporizeTextCycle, { Tag } from "@/components/ui/vapour-text-effect";
 import { CountdownTimer } from "@/components/countdown-timer";
 import { HoverButton } from "@/components/ui/hover-button";
 import { ArrowRight, FileText } from "lucide-react";
-import Hyperspeed from "./Hyperspeed";
+import AnoAI from "@/components/ui/animated-shader-background";
 
 interface HeroSectionProps {
   variant?: "center-with-stats" | "default";
@@ -30,45 +30,9 @@ export function HeroSection({
 
         <div className="w-full max-w-7xl h-[800px] relative">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <Hyperspeed
-              effectOptions={{
-                onSpeedUp: () => {},
-                onSlowDown: () => {},
-                distortion: "turbulentDistortion",
-                length: 400,
-                roadWidth: 10,
-                islandWidth: 2,
-                lanesPerRoad: 4,
-                fov: 90,
-                fovSpeedUp: 150,
-                speedUp: 2,
-                carLightsFade: 0.4,
-                totalSideLightSticks: 20,
-                lightPairsPerRoadWay: 40,
-                shoulderLinesWidthPercentage: 0.05,
-                brokenLinesWidthPercentage: 0.1,
-                brokenLinesLengthPercentage: 0.5,
-                lightStickWidth: [0.12, 0.5],
-                lightStickHeight: [1.3, 1.7],
-                movingAwaySpeed: [60, 80],
-                movingCloserSpeed: [-120, -160],
-                carLightsLength: [400 * 0.03, 400 * 0.2],
-                carLightsRadius: [0.05, 0.14],
-                carWidthPercentage: [0.3, 0.5],
-                carShiftX: [-0.8, 0.8],
-                carFloorSeparation: [0, 5],
-                colors: {
-                  roadColor: 0x080808,
-                  islandColor: 0x0a0a0a,
-                  background: 0x000000,
-                  shoulderLines: 0xffffff,
-                  brokenLines: 0xffffff,
-                  leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
-                  rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
-                  sticks: 0x03b3c3,
-                },
-              }}
-            />
+            <div className="w-full h-full">
+              <AnoAI />
+            </div>
           </div>
           <Card className="relative z-10 w-full h-full bg-transparent backdrop-blur-lg bg-clip-padding overflow-hidden border border-cyan-400/30 shadow-2xl shadow-cyan-400/20">
             <Spotlight

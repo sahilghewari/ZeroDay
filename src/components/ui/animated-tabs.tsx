@@ -45,7 +45,7 @@ export function AnimatedTabs({ tabs, active, onChange }: AnimatedTabsProps) {
   }
 
   return (
-    <div className="relative bg-secondary/50 border border-primary/10 mx-auto flex w-fit flex-col items-center rounded-full py-2 px-4">
+    <div className="relative bg-secondary/50 border border-primary/10 mx-auto flex w-fit flex-col items-center rounded-full py-1.5 px-3 sm:py-2 sm:px-4">
       <div
         ref={containerRef}
         className="absolute z-10 w-full overflow-hidden [clip-path:inset(0px_75%_0px_0%_round_17px)] [transition:clip-path_0.25s_ease]"
@@ -55,7 +55,7 @@ export function AnimatedTabs({ tabs, active, onChange }: AnimatedTabsProps) {
             <button
               key={index}
               onClick={() => handleClick(tab)}
-              className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-primary-foreground"
+              className="flex h-7 items-center rounded-full px-3 py-1.5 text-xs sm:text-sm font-medium text-primary-foreground"
               tabIndex={-1}
             >
               {tab.label}
@@ -73,7 +73,7 @@ export function AnimatedTabs({ tabs, active, onChange }: AnimatedTabsProps) {
               key={index}
               ref={isActive ? activeTabRef : null}
               onClick={() => handleClick(tab)}
-              className="flex h-8 items-center cursor-pointer rounded-full p-3 text-sm font-medium text-muted-foreground"
+              className="flex h-7 items-center cursor-pointer rounded-full px-3 py-1.5 text-xs sm:text-sm font-medium text-muted-foreground"
             >
               {tab.label}
             </button>

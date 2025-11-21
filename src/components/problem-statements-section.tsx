@@ -68,7 +68,7 @@ const categories = [
   },
   {
     id: "work",
-    title: "Future of Work",
+    title: "Future",
     tagline: "Workforce Transformation",
     icon: <Building className="w-6 h-6" />,
     problemCount: 8,

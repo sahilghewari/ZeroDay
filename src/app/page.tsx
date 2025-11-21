@@ -11,9 +11,9 @@ export default function Home() {
   
   return (
     <section>
-<ScrollProgress />
     <div className="min-h-screen bg-black pb-24">
       <Navigation />
+<ScrollProgress />
       <HeroSection variant="center-with-stats" />
       <AboutSection />
       <ProblemStatementsSection />

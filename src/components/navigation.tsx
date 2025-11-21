@@ -57,8 +57,6 @@ export function Navigation({ sticky = true, blurOnScroll = true, className = "" 
     { href: '#problems', label: 'Problem Statements' },
     { href: '#timeline', label: 'Timeline' },
     { href: '#prizes', label: 'Prizes' },
-    { href: '#sponsors', label: 'Sponsors' },
-    { href: '#judges', label: 'Judges' },
     { href: '#faq', label: 'FAQ' },
   ]
 
