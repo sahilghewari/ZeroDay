@@ -83,7 +83,7 @@ declare global {
   }
 }
 
-export default function VaporizeTextCycle({
+const VaporizeTextCycle = memo(function VaporizeTextCycle({
   texts = ["Next.js", "React"],
   font = {
     fontFamily: "sans-serif",
@@ -407,7 +407,9 @@ export default function VaporizeTextCycle({
       <SeoElement tag={tag} texts={texts} />
     </div>
   );
-}
+});
+
+export default VaporizeTextCycle;
 
 // ------------------------------------------------------------ //
 // SEO ELEMENT

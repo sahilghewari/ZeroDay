@@ -91,6 +91,13 @@
   }
 }
 
+/* Performance optimizations */
+.animate-performance {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

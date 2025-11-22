@@ -85,7 +85,7 @@ export function TimelineSection() {
       ),
     },
     {
-      title: "Dec 26, 2025 (2:00 PM - 5:00 PM)",
+      title: "Dec 26, 2025 (12:00 PM - 2:00 PM)",
       content: (
         <div>
           <p className="text-white font-semibold">Presentations by Top Teams</p>
@@ -104,7 +104,7 @@ export function TimelineSection() {
     },
   ];
   return (
-    <section id="timeline" className="min-h-screen w-full py-24 bg-transparent">
+    <section id="timeline" className="w-full py-12 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Timeline data={data} />
       </div>

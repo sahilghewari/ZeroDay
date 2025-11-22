@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo, memo } from "react"
 
 interface CountdownTimerProps {
   targetDate: string
@@ -8,7 +8,7 @@ interface CountdownTimerProps {
   variant?: "default" | "minimal-white" | "compact"
 }
 
-export function CountdownTimer({ targetDate, className = "", variant = "default" }: CountdownTimerProps) {
+export const CountdownTimer = memo(function CountdownTimer({ targetDate, className = "", variant = "default" }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -90,4 +90,4 @@ export function CountdownTimer({ targetDate, className = "", variant = "default"
       </div>
     </div>
   )
-}
+})

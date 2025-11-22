@@ -8,10 +8,10 @@ import {
 
 export function FaqsSection() {
 	return (
-		<div className="mx-auto w-full max-w-3xl space-y-7 px-4 pt-16">
+		<div className="mx-auto w-full max-w-3xl space-y-7 px-4 pt-8 pb-12">
 			<div className="space-y-2">
-					<h2 className="text-3xl font-bold md:text-4xl">ZeroDay Hackathon — FAQs</h2>
-					<p className="text-muted-foreground max-w-2xl">
+					<h2 className="text-3xl font-bold md:text-4xl text-white">ZeroDay Hackathon — FAQs</h2>
+					<p className="text-gray-300 max-w-2xl">
 						Answers to common questions about the ZeroDay Hackathon: who can participate, how to register,
 						submission rules, judging criteria, prizes and logistics. If you don't find what you need,
 						please reach out to the team.
@@ -20,27 +20,27 @@ export function FaqsSection() {
 			<Accordion
 				type="single"
 				collapsible
-				className="bg-card/50 w-full -space-y-px rounded-lg "
+				className="w-full -space-y-px rounded-lg bg-transparent"
 				defaultValue="item-1"
 			>
 				{questions.map((item) => (
 					<AccordionItem
 						value={item.id}
 						key={item.id}
-						className="relative border-x first:rounded-t-lg first:border-t last:rounded-b-lg last:border-b"
+						className="relative bg-transparent border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)] first:rounded-t-lg first:border-t last:rounded-b-lg last:border-b hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] transition-all duration-300"
 					>
-						<AccordionTrigger className="px-4 py-4 text-[15px] leading-6 hover:no-underline">
+						<AccordionTrigger className="px-4 py-4 text-[15px] leading-6 hover:no-underline text-white">
 							{item.title}
 						</AccordionTrigger>
-						<AccordionContent className="text-muted-foreground pb-4 px-4">
+						<AccordionContent className="text-gray-300 pb-4 px-4">
 							{item.content}
 						</AccordionContent>
 					</AccordionItem>
 				))}
 			</Accordion>
-			<p className="text-muted-foreground">
+			<p className="text-gray-300">
 				Can't find what you're looking for? Contact our{' '}
-				<a href="#" className="text-primary hover:underline">
+				<a href="mailto:event.zeroday@gmail.com" className="text-cyan-400 hover:text-cyan-300 hover:underline transition-colors">
 					Email Support
 				</a>
 			</p>

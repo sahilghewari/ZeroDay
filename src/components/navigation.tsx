@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { HoverButton } from "@/components/ui/hover-button"
@@ -17,23 +17,32 @@ export function Navigation({ sticky = true, blurOnScroll = true, className = "" 
   const [activeSection, setActiveSection] = useState('hero')
 
   useEffect(() => {
+    let ticking = false
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50)
 
-      // Update active section based on scroll position
-      const sections = ['hero', 'about', 'problems', 'timeline', 'prizes', 'sponsors', 'judges', 'faq']
-      const current = sections.find(section => {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          return rect.top <= 100 && rect.bottom >= 100
-        }
-        return false
-      })
-      if (current) setActiveSection(current)
+          // Update active section based on scroll position (throttled)
+          const sections = ['hero', 'about', 'problems', 'timeline', 'prizes', 'sponsors', 'judges', 'faq']
+          const current = sections.find(section => {
+            const element = document.getElementById(section)
+            if (element) {
+              const rect = element.getBoundingClientRect()
+              return rect.top <= 100 && rect.bottom >= 100
+            }
+            return false
+          })
+          if (current) setActiveSection(current)
+          
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

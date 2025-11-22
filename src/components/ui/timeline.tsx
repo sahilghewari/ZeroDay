@@ -37,17 +37,26 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-white max-w-4xl">
-        Hackathon Timeline
-        </h2>
-        <p className="text-neutral-300 text-sm md:text-base max-w-sm">
-          Stay on track with our detailed hackathon schedule, designed to keep
-          you informed and engaged from start to finish.
-        </p>
+      <div className="max-w-7xl mx-auto pt-12 pb-4 px-4 md:px-8 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center p-8 border-b-2 border-cyan-400/50 shadow-[0_2px_20px_rgba(6,182,212,0.3)] rounded-lg"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              ZeroDay Timeline
+            </span>
+          </h1>
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            From registration to victory — your journey to building the future
+          </p>
+        </motion.div>
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-32 pt-4 overflow-hidden">
         {data.map((item, index) => (
           <div
             key={index}
@@ -74,7 +83,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           style={{
             height: height + "px",
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
+          className="absolute md:left-8 left-8 top-0 w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
         >
           <motion.div
             style={{

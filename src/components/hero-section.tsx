@@ -1,16 +1,26 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
-import { SplineScene } from "@/components/ui/splite";
 import VaporizeTextCycle, { Tag } from "@/components/ui/vapour-text-effect";
 import { CountdownTimer } from "@/components/countdown-timer";
 import { HoverButton } from "@/components/ui/hover-button";
 import { ArrowRight, FileText } from "lucide-react";
-import AnoAI from "@/components/ui/animated-shader-background";
+
+// Lazy load heavy 3D/WebGL components with no SSR
+const SplineScene = dynamic(() => import("@/components/ui/splite").then(mod => ({ default: mod.SplineScene })), {
+  ssr: false,
+  loading: () => <div className="w-full h-full flex items-center justify-center"><div className="animate-pulse text-cyan-400">Loading 3D...</div></div>
+});
+
+const AnoAI = dynamic(() => import("@/components/ui/animated-shader-background"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-gradient-to-br from-black via-purple-900/20 to-cyan-900/20" />
+});
 
 interface HeroSectionProps {
   variant?: "center-with-stats" | "default";
@@ -60,12 +70,12 @@ export function HeroSection({
                       texts={["ZeroDay", "Hack.", "Build.", "Transform."]}
                       className="font-sans font-extrabold text-[clamp(20px,6.5vw,60px)] leading-tight"
                       color="rgb(34, 211, 238)"
-                      spread={2}
-                      density={6}
+                      spread={3}
+                      density={8}
                       animation={{
-                        vaporizeDuration: 2.5,
-                        fadeInDuration: 1.2,
-                        waitDuration: 1,
+                        vaporizeDuration: 2.0,
+                        fadeInDuration: 1.5,
+                        waitDuration: 2.0,
                       }}
                       direction="left-to-right"
                       alignment="left"
@@ -83,7 +93,10 @@ export function HeroSection({
                       <span>Register</span>
                       <ArrowRight className="ml-1 h-6 w-6" />
                     </HoverButton>
-                    <HoverButton className="flex-1 min-w-0 flex items-center justify-center gap-2 border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 px-6 py-3">
+                    <HoverButton 
+                      onClick={() => document.getElementById('problem-statements')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="flex-1 min-w-0 flex items-center justify-center gap-2 border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 px-6 py-3 cursor-pointer"
+                    >
                       <span>Problems</span>
                       <FileText className="ml-1 h-6 w-6" />
                     </HoverButton>
