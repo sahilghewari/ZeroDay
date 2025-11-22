@@ -257,7 +257,7 @@ export function ProblemStatementsSection() {
                                 View Full Details →
                               </Button>
                             </DialogTrigger>
-                            <DialogContent className="max-w-[95vw] sm:max-w-4xl bg-transparent border-cyan-400/30 max-h-[90vh] overflow-y-auto">
+                            <DialogContent className="max-w-[95vw] sm:max-w-4xl bg-black/95 backdrop-blur-md border-cyan-400/30 max-h-[90vh] overflow-y-auto">
                               <DialogHeader>
                                 <DialogTitle className="text-slate-300 flex items-start sm:items-center gap-2 flex-col sm:flex-row text-sm sm:text-base">
                                   <Badge variant="outline" className="border-cyan-400 text-cyan-400 text-[10px] sm:text-xs">

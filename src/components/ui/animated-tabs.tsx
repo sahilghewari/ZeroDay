@@ -52,17 +52,17 @@ export function AnimatedTabs({ tabs, active, onChange }: AnimatedTabsProps) {
   }
 
   return (
-    <div className="relative bg-transparent border border-cyan-400/50 shadow-lg shadow-cyan-400/50 mx-auto flex w-full max-w-4xl flex-col items-center rounded-2xl sm:rounded-full py-2 px-2 sm:py-2 sm:px-4">
+    <div className="relative bg-transparent border-2 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)] mx-auto flex w-full max-w-6xl flex-col items-center rounded-2xl sm:rounded-full py-3 px-2 sm:py-2 sm:px-4">
       <div
         ref={containerRef}
         className="absolute z-10 w-full overflow-hidden [clip-path:inset(0px_75%_0px_0%_round_17px)] [transition:clip-path_0.25s_ease]"
       >
-        <div className="relative flex w-full flex-wrap justify-center bg-linear-to-r from-cyan-500 to-blue-500">
+        <div className="relative grid grid-cols-2 sm:flex sm:flex-nowrap w-full justify-center gap-1 bg-linear-to-r from-cyan-500 to-blue-500">
           {tabs.map((tab, index) => (
             <button
               key={index}
               onClick={() => handleClick(tab)}
-              className="flex h-8 sm:h-7 items-center rounded-full px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-sm font-medium text-white whitespace-nowrap m-0.5"
+              className="flex h-9 sm:h-7 items-center justify-center rounded-full px-2 sm:px-3 py-1.5 text-[10px] sm:text-sm font-medium text-white whitespace-nowrap border border-cyan-400/40"
               tabIndex={-1}
             >
               {tab.label}
@@ -71,7 +71,7 @@ export function AnimatedTabs({ tabs, active, onChange }: AnimatedTabsProps) {
         </div>
       </div>
 
-      <div className="relative flex w-full flex-wrap justify-center gap-1">
+      <div className="relative grid grid-cols-2 sm:flex sm:flex-nowrap w-full justify-center gap-1.5 sm:gap-1">
         {tabs.map((tab, index) => {
           const isActive = activeTab === tab.label
 
@@ -80,7 +80,7 @@ export function AnimatedTabs({ tabs, active, onChange }: AnimatedTabsProps) {
               key={index}
               ref={isActive ? activeTabRef : null}
               onClick={() => handleClick(tab)}
-              className="flex h-8 sm:h-7 items-center cursor-pointer rounded-full px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-sm font-medium text-white whitespace-nowrap"
+              className="flex h-9 sm:h-7 items-center justify-center cursor-pointer rounded-full px-2 sm:px-3 py-1.5 text-[10px] sm:text-sm font-medium text-white whitespace-nowrap border-2 border-cyan-400/60 shadow-[0_0_8px_rgba(34,211,238,0.4)] hover:shadow-[0_0_12px_rgba(34,211,238,0.6)] hover:border-cyan-400 transition-all duration-300"
             >
               {tab.label}
             </button>
