@@ -137,16 +137,16 @@ export function Navigation({ sticky = true, blurOnScroll = true, className = "" 
       </button>
 
       <button
-        onClick={() => scrollToSection('problems')}
-        className={`flex items-center flex-col text-xs gap-1 bubbly active:brightness-90 ${activeSection === 'problems' ? 'text-cyan-400' : 'text-gray-300'}`}
+        onClick={() => scrollToSection('problem-statements')}
+        className={`flex items-center flex-col text-xs gap-1 bubbly active:brightness-90 ${activeSection === 'problem-statements' ? 'text-cyan-400' : 'text-gray-300'}`}
       >
         <FileText className="shrink-0 stroke-current" size={25} />
         <span>Problems</span>
       </button>
 
       <button
-        onClick={() => scrollToSection('prizes')}
-        className={`flex items-center flex-col text-xs gap-1 bubbly active:brightness-90 ${activeSection === 'prizes' ? 'text-cyan-400' : 'text-gray-300'}`}
+        onClick={() => scrollToSection('hero')}
+        className={`flex items-center flex-col text-xs gap-1 bubbly active:brightness-90 ${activeSection === 'hero' ? 'text-cyan-400' : 'text-gray-300'}`}
       >
         <Trophy className="shrink-0 stroke-current" size={25} />
         <span>Prizes</span>

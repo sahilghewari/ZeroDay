@@ -34,6 +34,7 @@ export function HeroSection({
   return (
     <>
       <section
+        id="hero"
         className={`relative min-h-screen flex flex-col gap-2 items-center justify-center px-4 bg-black ${className}`}
       >
         <CountdownTimer targetDate="2025-12-25T09:30:00" variant="compact" />
@@ -118,7 +119,7 @@ export function HeroSection({
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-cyan-400">
-                          5
+                          6
                         </div>
                         <div className="text-sm text-gray-400">Categories</div>
                       </div>
