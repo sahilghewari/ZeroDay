@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { HoverButton } from "@/components/ui/hover-button"
 import { Home, FileText, Trophy } from 'lucide-react'
+import Image from "next/image"
 
 interface NavigationProps {
   sticky?: boolean
@@ -86,11 +87,30 @@ export function Navigation({ sticky = true, blurOnScroll = true, className = "" 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <span className="font-mono text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              ZeroDay
-            </span>
-          </div>
+          <button 
+            onClick={() => scrollToSection('hero')}
+            className="flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
+            aria-label="ZeroDay Home"
+          >
+            {/* Desktop: Full wordmark logo */}
+            <Image
+              src="/wordlogo.png"
+              alt="ZeroDay"
+              width={150}
+              height={40}
+              className="hidden sm:block h-8 w-auto"
+              priority
+            />
+            {/* Mobile: Square logo without background */}
+            <Image
+              src="/logo.png"
+              alt="ZeroDay"
+              width={48}
+              height={48}
+              className="block sm:hidden h-12 w-12"
+              priority
+            />
+          </button>
 
           {/* Navigation Links */}
           <div className="hidden md:block">

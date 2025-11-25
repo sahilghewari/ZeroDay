@@ -21,6 +21,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ZeroDay Hackathon",
   description: "India's Premier Social Impact & AI/ML Hackathon",
+  icons: {
+    icon: [
+      { url: "/logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: { url: "/logo.png", sizes: "180x180", type: "image/png" },
+  },
+  openGraph: {
+    title: "ZeroDay Hackathon",
+    description: "India's Premier Social Impact & AI/ML Hackathon",
+    images: ["/wordlogo.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ZeroDay Hackathon",
+    description: "India's Premier Social Impact & AI/ML Hackathon",
+    images: ["/wordlogo.png"],
+  },
 };
 
 export default function RootLayout({
