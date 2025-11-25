@@ -215,7 +215,9 @@ export function AboutSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <HoverButton className="flex items-center gap-2 bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black px-8 py-6 text-lg font-semibold rounded-xl shadow-lg shadow-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-400/50 transition-all">
+              <HoverButton 
+                onClick={() => window.open('https://unstop.com/o/4z2goDG?lb=e40jIocw&utm_medium=Share&utm_source=zerodayu84546&utm_campaign=Online_coding_challenge', '_blank')}
+                className="flex items-center gap-2 bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black px-8 py-6 text-lg font-semibold rounded-xl shadow-lg shadow-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-400/50 transition-all">
                 Register Your Team <ArrowRight className="w-5 h-5" />
               </HoverButton>
             </motion.div>

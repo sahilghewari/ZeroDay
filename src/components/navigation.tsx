@@ -134,6 +134,7 @@ export function Navigation({ sticky = true, blurOnScroll = true, className = "" 
           {/* CTA Button */}
           <div className="hidden md:block">
             <HoverButton
+              onClick={() => window.open('https://unstop.com/o/4z2goDG?lb=e40jIocw&utm_medium=Share&utm_source=zerodayu84546&utm_campaign=Online_coding_challenge', '_blank')}
               className="bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black font-semibold shadow-lg shadow-cyan-400/25"
             >
               Register Now
