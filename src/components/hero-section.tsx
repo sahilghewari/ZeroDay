@@ -107,7 +107,7 @@ export function HeroSection({
                     <div className="grid grid-cols-3 gap-4 max-w-md">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-cyan-400">
-                          ₹1.5L
+                          ₹1.0L
                         </div>
                         <div className="text-sm text-gray-400">Prize Pool</div>
                       </div>
