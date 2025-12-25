@@ -90,9 +90,7 @@ export function HeroSection({
                   </p>
 
                   <div className="flex flex-row gap-2 lg:gap-4 mb-6 w-full">
-                    <HoverButton 
-                      onClick={() => window.open('https://unstop.com/o/4z2goDG?lb=e40jIocw&utm_medium=Share&utm_source=zerodayu84546&utm_campaign=Online_coding_challenge', '_blank')}
-                      className="flex-1 min-w-0 flex items-center justify-center gap-2 bg-linear-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black  font-semibold shadow-lg shadow-cyan-400/25">
+                    <HoverButton className="flex-1 min-w-0 flex items-center justify-center gap-2 bg-linear-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 text-black  font-semibold shadow-lg shadow-cyan-400/25">
                       <span>Register</span>
                       <ArrowRight className="ml-1 h-6 w-6" />
                     </HoverButton>

@@ -22,6 +22,10 @@ const FaqsSection = dynamic(() => import("@/components/ui/faqs-1").then(mod => (
   loading: () => <div className="min-h-screen bg-black" />
 })
 
+const SponsorsSection = dynamic(() => import("@/components/sponsors-section").then(mod => ({ default: mod.SponsorsSection })), {
+  loading: () => <div className="min-h-[50vh] bg-black" />
+})
+
 const GradualBlur = dynamic(() => import('../components/GradualBlur'), {
   ssr: false
 })
@@ -38,6 +42,7 @@ export default function Home() {
       <ProblemStatementsSection />
       <TimelineSection />
       <FaqsSection />
+      <SponsorsSection />
     </div>
     <GradualBlur
       target="page"
